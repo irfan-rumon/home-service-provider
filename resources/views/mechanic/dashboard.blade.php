@@ -24,7 +24,7 @@
                                 </button>
     </form>
 
-      <h1>Welcome to Electrician Dashboard</h1>
+      <h1>Welcome to Mechanic Dashboard</h1>
       <h3>Get your clients</h3>
 </body>
 </html>

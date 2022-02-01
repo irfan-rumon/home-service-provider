@@ -20,4 +20,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', [UserController::class, 'dashboard'])>middleware(['auth:sanctum', 'verified']);
+Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth']);

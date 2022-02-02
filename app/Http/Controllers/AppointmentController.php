@@ -36,6 +36,9 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         //
+    } 
+    public function setAppointment($serviceProvider){
+        return view('appointment.setAppointment');
     }
 
     /**

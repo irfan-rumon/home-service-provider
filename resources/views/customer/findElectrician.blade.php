@@ -66,12 +66,39 @@
 	      </div>
     	</nav>
 
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Book a Electrician: </h2>
+        <div class="container mt-5 mb-5">
+                
+               
+                    
+                    @foreach($electricians as $electrician) 
+                    
+                     
+                        <div class="card">
+                            <div class="card-body">
+                            <div class="card-title">
+                                <h2>Name: {{ $electrician->name }}</h2> 
+                              
+                                
+                            </div>
+                            
+                            
+                            </div>
+                            <a href="#" class="btn btn-primary mt-5">Book Now</a>
+                            </div>
+                        
+                        </div>
+                    
         
-      </div>
-		</div>
+                    @endforeach  
+                   
+                </div>    
+        
+        </div>
+	</div>
+  
 
     <script src="/page-template/js/jquery.min.js"></script>
     <script src="/page-template/js/popper.js"></script>

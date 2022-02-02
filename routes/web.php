@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,9 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth']);
+
+//Accessed by customer
+Route::get('/findElectrician', [PageController::class, 'findElectrician']);
+
+//Accessd by customer
+Route::get('/findMechanic', [PageController::class, 'findMechanic']);

@@ -15,7 +15,7 @@
   </head>
   <body>
 		
-		<div class="wrapper d-flex align-items-stretch">
+		<div class="wrapper d-flex align-items-stretch ">
 			<nav id="sidebar">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -43,7 +43,7 @@
                                                 this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </a>
-    </form>
+               </form>
               </li>
 	        </ul>
 
@@ -66,38 +66,21 @@
 	      </div>
     	</nav>
 
-    <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Book a Electrician: </h2>
-        <div class="container mt-5 mb-5">
-                
-               
-                    
-                    @foreach( $mechanics as $mechanic ) 
-                    
-                     
-                        <div class="card">
-                            <div class="card-body">
-                            <div class="card-title">
-                                <h2>Name: {{ $mechanic->name }}</h2> 
-                              
-                                
-                            </div>
-                            
-                            
-                            </div>
-                            <a href="#" class="btn btn-primary mt-5">Book Now</a>
-                            </div>
-                        
-                        </div>
-                    
-        
-                    @endforeach  
-                   
-                </div>    
-        
-        </div>
-	</div>
+  
+
+    <div class = "m-5 d-flex  justify-content-around">
+    @foreach( $mechanics as $mechanic ) 
+    <div class="card" style="width: 18rem; margin-left-20px;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Name: {{ $mechanic ->name }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Book Now</a>
+            </div>
+    </div>
+    @endforeach  
+    </div>
+</div>
   
 
     <script src="/page-template/js/jquery.min.js"></script>

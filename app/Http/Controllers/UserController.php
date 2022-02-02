@@ -12,19 +12,19 @@ class UserController extends Controller
     {
         if( Auth::user()->role == 'customer')
         {
-            return view('customer.dashboard');
+            return view('customer.dashboard', ['name' => Auth::user()->name]);
         }
         if( Auth::user()->role == 'electrician')
         {
-            return view('electrician.dashboard');
+            return view('electrician.dashboard', ['name' => Auth::user()->name]);
         }
         if( Auth::user()->role == 'mechanic')
         {
-            return view('mechanic.dashboard');
+            return view('mechanic.dashboard', ['name' => Auth::user()->name]);
         }
         if( Auth::user()->role == 'admin')
         {
-            return view('admin.dashboard');
+            return view('admin.dashboard', ['name' => Auth::user()->name]);
         }
     }
 }

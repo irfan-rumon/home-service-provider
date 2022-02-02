@@ -10,8 +10,40 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/page-template/css/style.css">
 
-        
-    </style>
+     
+        <style>
+                .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 300px;
+                margin: auto;
+                text-align: center;
+                font-family: arial;
+                }
+
+                
+
+                .card button {
+                border: none;
+                outline: 0;
+                padding: 12px;
+                color: white;
+                background-color: #000;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                font-size: 18px;
+                }
+
+                .card button:hover {
+                opacity: 0.7;
+                }
+
+                #book{
+                    background-color: hotpink;
+                }
+       </style>    
+
+    
   </head>
   <body>
 		
@@ -26,6 +58,9 @@
 				<div class="p-4">
 		  		<h1><a href="index.html" class="logo">Portfolic <span>Portfolio Agency</span></a></h1>
 	        <ul class="list-unstyled components mb-5">
+              <li class="active">
+	            <a href="{{url('dashboard')}}"><span class="fa fa-home mr-3"></span>My Dashboard</a>
+	          </li>    
 	          <li class="active">
 	            <a href="{{url('findElectrician')}}"><span class="fa fa-home mr-3"></span>Find an Electrician</a>
 	          </li>
@@ -68,19 +103,17 @@
 
   
 
-    <div class = "m-5 d-flex  justify-content-around">
+   
     @foreach($electricians as $electrician ) 
-    <div class="card" style="width: 18rem; margin-left-20px;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Name: {{ $electrician->name }}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Book Now</a>
+            <div class="card">
+            <img src="/w3images/jeans3.jpg" alt="Denim Jeans" style="width:100%">
+            <h1 style="margin: 10px;">Name: {{ $electrician->name }}</h1>
+            
+            <p><button id="book">Book Now</button></p>
             </div>
-    </div>
     @endforeach  
-    </div>
-</div>
+    
+
   
 
     <script src="/page-template/js/jquery.min.js"></script>

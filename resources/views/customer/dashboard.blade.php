@@ -36,14 +36,14 @@
                  <a href="#"><span class="fa fa-home mr-3"></span>My Appoinment Status</a>
 	          </li>
               <li>
-              <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <a style="margin-left: 25px;" href="{{ route('logout') }}"
-                                         onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </a>
-    </form>
+				<form method="POST" action="{{ route('logout') }}">
+									@csrf
+									<a style="margin-left: 25px;" href="{{ route('logout') }}"
+											onclick="event.preventDefault();
+													this.closest('form').submit();">
+										{{ __('Log Out') }}
+									</a>
+				</form>
               </li>
 	        </ul>
 
@@ -71,7 +71,7 @@
         <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
         
       </div>
-		</div>
+	</div>
 
     <script src="/page-template/js/jquery.min.js"></script>
     <script src="/page-template/js/popper.js"></script>

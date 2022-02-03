@@ -7,36 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class AppointmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    } 
+    
     public function setAppointment($serviceProvider, Request $request){
         
         $appointment = new Appointment();
@@ -47,6 +18,15 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect('dashboard');
+    }
+
+    public function pending_appointments()
+    {
+         return view('appointment.pending');
+    }
+    public function confirmed_appointments()
+    {
+        return view('appointment.confirmed');
     }
 
     /**

@@ -37,6 +37,22 @@ class AppointmentController extends Controller
                                               
     }
 
+    public function approve_appointment($id)
+    {
+        $appointment = Appointment::find($id);
+        $appointment->appointment_status = 'confirmed';
+        $appointment->save();
+        return redirect()->back();
+    }
+
+    public function cancel_appointment($id)
+    {
+        $appointment = Appointment::find($id);
+        $appointment->appointment_status = 'canceled';
+        $appointment->save();
+        return redirect()->back();
+    }
+
     /**
      * Display the specified resource.
      *

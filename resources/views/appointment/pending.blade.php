@@ -32,6 +32,9 @@
 	          <li class="active">
                  <a href="{{  url('confirmed_appointments')  }}"><span class="fa fa-home mr-3"></span>Confirmed Appointments</a>
 	          </li>
+            <li class="active">
+                 <a href="{{  url('dashboard')  }}"><span class="fa fa-home mr-3"></span>Dashboard</a>
+	          </li>
               <li>
               <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -79,7 +82,7 @@
                         </tr>
                     </thead>
                     @foreach( $appointments as $appointment)
-                        @if( Auth::user()->id == $appointment->service_provider_id )
+                        @if( Auth::user()->id == $appointment->service_provider_id && $appointment->appointment_status == 'pending')
                             <tbody>
                                 <tr>
                             
@@ -88,7 +91,10 @@
                                 <td>{{ $appointment->customer_phone }}</td>
                                 <td>{{ $appointment->appointment_date }}</td>
                                 <td>{{ $appointment->appointment_status }}</td>
-                                <td> Button Link </td>
+                                <td> 
+                                  <a class="btn btn-success" href="{{ url('approve_appointment', [ $appointment->id]) }}" role="button">Confirm</a>
+                                  <a class="btn btn-danger" href="{{ url('cancel_appointment', [ $appointment->id]) }}" role="button">Cancel</a>
+                                </td>
                                 </tr>
                             </tbody>
                         @endif    

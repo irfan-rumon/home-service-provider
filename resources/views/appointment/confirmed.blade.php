@@ -32,6 +32,9 @@
 	          <li class="active">
                  <a href="{{  url('confirmed_appointments')  }}"><span class="fa fa-home mr-3"></span>Confirmed Appointments</a>
 	          </li>
+            <li class="active">
+                 <a href="{{  url('dashboard')  }}"><span class="fa fa-home mr-3"></span>Dashboard</a>
+	          </li>
               <li>
               <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -65,24 +68,32 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
+        <h2 class="mb-4">Your Appointment List</h2>
 		<table class="table">
                     <thead>
                         <tr>
                       
                         <th scope="col">Customer Name</th>
                         <th scope="col">Customer Address</th>
+                        <th scope="col">Customer Phone</th>
                         <th scope="col">Appointment Date</th>
+                       
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                       
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        </tr>
-                    </tbody>
+                    @foreach( $appointments as $appointment)
+                        @if( Auth::user()->id == $appointment->service_provider_id && $appointment->appointment_status == 'confirmed' )
+                            <tbody>
+                                <tr>
+                            
+                                <td>{{ $appointment->customer_name }}</td>
+                                <td>{{ $appointment->customer_address }}</td>
+                                <td>{{ $appointment->customer_phone }}</td>
+                                <td>{{ $appointment->appointment_date }}</td>
+                                
+                                </tr>
+                            </tbody>
+                        @endif    
+                    @endforeach        
 </table>
         
       </div>

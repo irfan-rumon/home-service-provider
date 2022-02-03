@@ -32,3 +32,5 @@ Route::get('/findMechanic', [PageController::class, 'findMechanic'])->middleware
 Route::post('/setAppointment/{seriveProvider}', [AppointmentController::class, 'setAppointment'])->middleware(['auth']);
 Route::get('/pending_appointments', [AppointmentController::class, 'pending_appointments'])->middleware(['auth']);
 Route::get('/confirmed_appointments', [AppointmentController::class, 'confirmed_appointments'])->middleware(['auth']);
+Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_appointment']);
+Route::get('/cancel_appointment/{id}', [AppointmentController::class, 'cancel_appointment']);

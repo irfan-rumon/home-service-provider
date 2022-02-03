@@ -12,35 +12,7 @@
 
      
         <style>
-                .card {
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-                max-width: 300px;
-                margin: auto;
-                text-align: center;
-                font-family: arial;
-                }
-
-                
-
-                .card button {
-                border: none;
-                outline: 0;
-                padding: 12px;
-                color: white;
-                background-color: #000;
-                text-align: center;
-                cursor: pointer;
-                width: 100%;
-                font-size: 18px;
-                }
-
-                .card button:hover {
-                opacity: 0.7;
-                }
-
-                #book{
-                    background-color: hotpink;
-                }
+               
        </style>    
 
     
@@ -60,9 +32,9 @@
 	        <ul class="list-unstyled components mb-5">
               <li class="active">
 	            <a href="{{url('dashboard')}}"><span class="fa fa-home mr-3"></span>My Dashboard</a>
-	          </li>  
+	          </li>    
 	          <li class="active">
-	            <a href="{{url('findElectrician')}}"><span class="fa fa-home mr-3"></span>Find a Electrician</a>
+	            <a href="{{url('findmechanic')}}"><span class="fa fa-home mr-3"></span>Find an mechanic</a>
 	          </li>
 	          <li class="active">
                  <a href="{{url('findMechanic')}}"><span class="fa fa-home mr-3"></span>Find a Mechanic</a>
@@ -105,12 +77,20 @@
 
    
     @foreach($mechanics as $mechanic ) 
-            <div class="card">
-            <img src="/w3images/jeans3.jpg" alt="Denim Jeans" style="width:100%">
-            <h1 style="margin: 10px;">Name: {{ $mechanic->name }}</h1>
+              <div class="card m-2" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h1 class="card-title">Name: {{ $mechanic->name}}</h1>
+                    </div>
+                    <form action={{ url('setAppointment', [$mechanic->id]) }} method="POST">
+                        @csrf
+                       <p>Select Booking date</p>
+                  
+                      <input type="date" name="appointment_date" class="form-control">
+                      <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Book</button>
+                    </form>
+               </div>      
             
-            <p><button id="book">Book Now</button></p>
-            </div>
     @endforeach  
     
 

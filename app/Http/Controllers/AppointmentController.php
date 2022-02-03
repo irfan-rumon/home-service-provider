@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class AppointmentController extends Controller
 {
     /**
@@ -37,8 +37,16 @@ class AppointmentController extends Controller
     {
         //
     } 
-    public function setAppointment($serviceProvider){
-        return view('appointment.setAppointment');
+    public function setAppointment($serviceProvider, Request $request){
+        
+        $appointment = new Appointment();
+        $appointment->customer_id = Auth::user()->id;
+        $appointment->service_provider_id = $serviceProvider;
+        $appointment->appointment_date = $request->appointment_date;
+        $appointment->appointment_status = 'pending';
+        $appointment->save();
+
+        return redirect('dashboard');
     }
 
     /**

@@ -82,10 +82,11 @@
                     <div class="card-body">
                       <h1 class="card-title">Name: {{ $electrician->name}}</h1>
                     </div>
-                    <form action={{ url('setAppointment', $electrician->id) }} method="POST">
+                    <form action={{ url('setAppointment', [$electrician->id]) }} method="POST">
+                        @csrf
                        <p>Select Booking date</p>
                   
-                      <input type="date" name="appointment-date" class="form-control">
+                      <input type="date" name="appointment_date" class="form-control">
                       <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Book</button>
                     </form>
                </div>      

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class AppointmentController extends Controller
@@ -12,6 +13,9 @@ class AppointmentController extends Controller
         
         $appointment = new Appointment();
         $appointment->customer_id = Auth::user()->id;
+        $appointment->customer_name = Auth::user()->name;
+        $appointment->customer_address = Auth::user()->address;
+        $appointment->customer_phone = Auth::user()->phone;
         $appointment->service_provider_id = $serviceProvider;
         $appointment->appointment_date = $request->appointment_date;
         $appointment->appointment_status = 'pending';
@@ -22,11 +26,15 @@ class AppointmentController extends Controller
 
     public function pending_appointments()
     {
-         return view('appointment.pending');
+         $appointments = Appointment::all();
+         return view('appointment.pending', ['appointments' => $appointments]);
+                                             
     }
     public function confirmed_appointments()
     {
-        return view('appointment.confirmed');
+        $appointments = Appointment::all();
+        return view('appointment.confirmed', ['appointments' => $appointments]);
+                                              
     }
 
     /**

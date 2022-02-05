@@ -26,18 +26,22 @@
 				<div class="p-4">
 		  		<h1><a href="index.html" class="logo">Portfolic <span>Portfolio Agency</span></a></h1>
 	        <ul class="list-unstyled components mb-5">
-			<li class="active">
+			   <li class="active">
 	            <a href="{{url('dashboard')}}"><span class="fa fa-home mr-3"></span>Dashboard</a>
-	            </li>   
-			<li class="active">
+	            </li>
+                
+                <li class="active">
 	            <a href="{{url('customers')}}"><span class="fa fa-home mr-3"></span>Customers</a>
-	          </li>
+	            </li>
+			
 	          <li class="active">
                  <a href="{{url('service_providers')}}"><span class="fa fa-home mr-3"></span>Service Providers</a>
 	          </li>
-			  <li class="active">
+
+              <li class="active">
                  <a href="{{url('appointments')}}"><span class="fa fa-home mr-3"></span>Appointments</a>
 	          </li>
+			  
               <li>
               <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -71,7 +75,39 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
+        <h2 class="mb-4">Service Providers:</h2>
+        <table class="table">
+                    <thead>
+                        <tr>
+                      
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                        
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    @foreach( $service_providers as $service_provider)
+                    
+                            <tbody>
+                                <tr>
+                            
+                                <td>{{ $service_provider->name }}</td>
+                                <td>{{ $service_provider->role }}</td>
+                                <td>{{ $service_provider->email }}</td>
+                                <td>{{ $service_provider->address }}</td>
+                                <td>{{ $service_provider->phone }}</td>
+                                
+                                <td> 
+                                  <a class="btn btn-danger" href="{{ url('delete_service_provider', [ $service_provider->id]) }}" role="button">Delete</a>
+                                 
+                                </tr>
+                            </tbody>
+                         
+                    @endforeach        
+        </table>
        
         
       </div>

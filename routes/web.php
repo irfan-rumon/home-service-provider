@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AppointmentController;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +38,9 @@ Route::get('/pending_appointments', [AppointmentController::class, 'pending_appo
 Route::get('/confirmed_appointments', [AppointmentController::class, 'confirmed_appointments'])->middleware(['auth']);
 Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_appointment']);
 Route::get('/cancel_appointment/{id}', [AppointmentController::class, 'cancel_appointment']);
+
+//Accessed by Admin
+Route::get('/customers', [AdminController::class, 'customers'])->middleware(['auth']);
+Route::get('/service_providers', [AdminController::class, 'service_providers'])->middleware(['auth']);
+Route::get('/appointments', [AdminController::class, 'appointments'])->middleware(['auth']);
+Route::get('/delete_service_provider/{id}', [AdminController::class, 'delete_service_provider'])->middleware(['auth']);

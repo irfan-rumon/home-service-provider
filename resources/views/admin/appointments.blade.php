@@ -71,7 +71,41 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
+        <h2 class="mb-4">Appointments:</h2>
+        <table class="table">
+                    <thead>
+                        <tr>
+                      
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Customer Address</th>
+                        <th scope="col">Service Provider Name</th>
+                        <th scope="col">Service Provider Role</th>
+                        <th scope="col">Appointment Date</th>
+                        <th scope="col">Appointment Status</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    @foreach( $appointments as $appointment)
+                       
+                            <tbody>
+                                <tr>
+                            
+                                <td>{{ $appointment->customer_name }}</td>
+                                <td>{{ $appointment->customer_address }}</td>
+                                <td>{{ $appointment->service_provider_name }}</td>
+                                <td>{{ $appointment->service_provider_role }}</td>
+                                <td>{{ $appointment->appointment_date }}</td>
+                                <td>{{ $appointment->appointment_status }}</td>
+                                <td> 
+                                  <a class="btn btn-success" href="{{ url('approve_appointment', [ $appointment->id]) }}" role="button">Confirm</a>
+                                  <a class="btn btn-danger" href="{{ url('cancel_appointment', [ $appointment->id]) }}" role="button">Cancel</a>
+                                </td>
+                                </tr>
+                            </tbody>
+                        
+                    @endforeach        
+        </table>
+        
        
         
       </div>

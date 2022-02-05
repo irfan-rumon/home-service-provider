@@ -71,7 +71,37 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
+        <h2 class="mb-4">Customers:</h2>
+        <table class="table">
+                    <thead>
+                        <tr>
+                      
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                        
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    @foreach( $customers as $customer)
+                    
+                            <tbody>
+                                <tr>
+                            
+                                <td>{{ $customer->name }}</td>
+                                <td>{{ $customer->email }}</td>
+                                <td>{{ $customer->address }}</td>
+                                <td>{{ $customer->phone }}</td>
+                                
+                                <td> 
+                                  <a class="btn btn-danger" href="{{ url('delete_customer', [ $customer->id]) }}" role="button">Delete</a>
+                                 
+                                </tr>
+                            </tbody>
+                         
+                    @endforeach        
+        </table>
        
         
       </div>

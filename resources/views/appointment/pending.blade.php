@@ -70,7 +70,7 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
         <h2 class="mb-4">Your Appointment List</h2>
-		<table class="table">
+	    	<table class="table">
                     <thead>
                         <tr>
                       
@@ -100,7 +100,7 @@
                             </tbody>
                         @endif    
                     @endforeach        
-</table>
+        </table>
         
       </div>
 		</div>

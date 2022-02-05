@@ -20,6 +20,8 @@ class CreateAppointmentsTable extends Migration
             $table->string('customer_address');
             $table->string('customer_phone');
             $table->string('service_provider_id');
+            $table->string('service_provider_name');
+            $table->string('service_provider_role');
             $table->date('appointment_date');
             $table->string('appointment_status');
 

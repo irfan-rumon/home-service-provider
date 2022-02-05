@@ -17,6 +17,8 @@ class AppointmentController extends Controller
         $appointment->customer_address = Auth::user()->address;
         $appointment->customer_phone = Auth::user()->phone;
         $appointment->service_provider_id = $serviceProvider;
+        $appointment->service_provider_name = User::where('id', $serviceProvider)->value('name');
+        $appointment->service_provider_role = User::where('id', $serviceProvider)->value('role');
         $appointment->appointment_date = $request->appointment_date;
         $appointment->appointment_status = 'pending';
         $appointment->save();

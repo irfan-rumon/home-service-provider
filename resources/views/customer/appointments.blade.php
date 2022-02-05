@@ -71,7 +71,33 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
+        <h2 class="mb-4">My Appointments:</h2>
+        <table class="table">
+                    <thead>
+                        <tr>
+                      
+                        <th scope="col">Name</th>
+                        <th scope="col">Role of Service</th>
+                        <th scope="col">Appointment Date</th>
+                        <th scope="col">Appointment Status</th>
+                        </tr>
+                    </thead>
+                    @foreach( $appointments as $appointment)
+                       
+                            <tbody>
+                                <tr>
+                            
+                                    <td>{{ $appointment->service_provider_name }}</td>
+                                    <td>{{ $appointment->service_provider_role }}</td>
+                        
+                                    <td>{{ $appointment->appointment_date }}</td>
+                                    <td>{{ $appointment->appointment_status }}</td>
+                                    
+                                </tr>
+                            </tbody>
+                       
+                    @endforeach        
+        </table>
         
       </div>
 	</div>

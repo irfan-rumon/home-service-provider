@@ -40,7 +40,7 @@
                  <a href="{{url('findMechanic')}}"><span class="fa fa-home mr-3"></span>Find a Mechanic</a>
 	          </li>
 			  <li class="active">
-                 <a href="#"><span class="fa fa-home mr-3"></span>My Appoinment Status</a>
+                 <a href="{{url('customer_appointments')}}"><span class="fa fa-home mr-3"></span>My Appoinment Status</a>
 	          </li>
               <li>
               <form method="POST" action="{{ route('logout') }}">

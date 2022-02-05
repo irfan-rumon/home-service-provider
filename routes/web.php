@@ -30,6 +30,10 @@ Route::get('/findElectrician', [PageController::class, 'findElectrician'])->midd
 //Accessd by customer
 Route::get('/findMechanic', [PageController::class, 'findMechanic'])->middleware(['auth']);
 Route::post('/setAppointment/{seriveProvider}', [AppointmentController::class, 'setAppointment'])->middleware(['auth']);
+//Accessed by customer
+Route::get('/customer_appointments', [PageController::class, 'customer_appointments'])->middleware(['auth']);
+
+
 Route::get('/pending_appointments', [AppointmentController::class, 'pending_appointments'])->middleware(['auth']);
 Route::get('/confirmed_appointments', [AppointmentController::class, 'confirmed_appointments'])->middleware(['auth']);
 Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_appointment']);

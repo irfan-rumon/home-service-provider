@@ -32,9 +32,9 @@
 	        <ul class="list-unstyled components mb-5">
               <li class="active">
 	            <a href="{{url('dashboard')}}"><span class="fa fa-home mr-3"></span>My Dashboard</a>
-	          </li>    
+	            </li>    
 	          <li class="active">
-	            <a href="{{url('findmechanic')}}"><span class="fa fa-home mr-3"></span>Find an mechanic</a>
+	            <a href="{{url('findElectrician')}}"><span class="fa fa-home mr-3"></span>Find an Electrician</a>
 	          </li>
 	          <li class="active">
                  <a href="{{url('findMechanic')}}"><span class="fa fa-home mr-3"></span>Find a Mechanic</a>

@@ -26,15 +26,16 @@
 				<div class="p-4">
 		  		<h1><a href="index.html" class="logo">Portfolic <span>Portfolio Agency</span></a></h1>
 	        <ul class="list-unstyled components mb-5">
+          <li class="active">
+                 <a href="{{  url('dashboard')  }}"><span class="fa fa-home mr-3"></span>Dashboard</a>
+	          </li>
 	          <li class="active">
 	            <a href="{{  url('pending_appointments')  }}"><span class="fa fa-home mr-3"></span> Pending Appointments</a>
 	          </li>
 	          <li class="active">
                  <a href="{{  url('confirmed_appointments')  }}"><span class="fa fa-home mr-3"></span>Confirmed Appointments</a>
 	          </li>
-            <li class="active">
-                 <a href="{{  url('dashboard')  }}"><span class="fa fa-home mr-3"></span>Dashboard</a>
-	          </li>
+            
               <li>
               <form method="POST" action="{{ route('logout') }}">
                                 @csrf

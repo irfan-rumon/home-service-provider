@@ -51,10 +51,10 @@
 						<h3 class="h6 mb-3">Subscribe for newsletter</h3>
 						<form action="#" class="subscribe-form">
 	            <div class="form-group d-flex">
-	            	<div class="icon"><span class="icon-paper-plane"></span></div>
-	              <input type="text" class="form-control" placeholder="Enter Email Address">
-	            </div>
-	          </form>
+								<div class="icon"><span class="icon-paper-plane"></span></div>
+							<input type="text" class="form-control" placeholder="Enter Email Address">
+							</div>
+						</form>
 					</div>
 
 	        <div class="footer">
@@ -68,10 +68,16 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name}}</h2>
+        
+	    @if(session('message'))
+              <h2 class="mb-4">{{session('message')}}</h1>
+		@else
+		      <h2 class="mb-4">Welcome Mr. {{ $profile->name}}</h2> 	  
+        @endif
+
         
       </div>
-		</div>
+	</div>
 
     <script src="/page-template/js/jquery.min.js"></script>
     <script src="/page-template/js/popper.js"></script>

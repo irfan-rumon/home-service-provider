@@ -66,9 +66,14 @@
 	      </div>
     	</nav>
 
-        <!-- Page Content  -->
+         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Mr. {{ $profile->name }}</h2>
+        
+	    @if(session('message'))
+              <h2 class="mb-4">{{session('message')}}</h1>
+		@else
+		      <h2 class="mb-4">Welcome Mr. {{ $profile->name}}</h2> 	  
+        @endif
 		
         
       </div>

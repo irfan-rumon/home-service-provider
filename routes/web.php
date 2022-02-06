@@ -40,7 +40,11 @@ Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_
 Route::get('/cancel_appointment/{id}', [AppointmentController::class, 'cancel_appointment']);
 
 //Accessed by Admin
-Route::get('/customers', [AdminController::class, 'customers'])->middleware(['auth']);
-Route::get('/service_providers', [AdminController::class, 'service_providers'])->middleware(['auth']);
-Route::get('/appointments', [AdminController::class, 'appointments'])->middleware(['auth']);
-Route::get('/delete_service_provider/{id}', [AdminController::class, 'delete_service_provider'])->middleware(['auth']);
+Route::middleware(['auth', 'isAdmin'])->group(function(){
+    Route::get('/customers', [AdminController::class, 'customers']);
+    Route::get('/service_providers', [AdminController::class, 'service_providers']);
+    Route::get('/appointments', [AdminController::class, 'appointments']);
+    Route::get('/delete_service_provider/{id}', [AdminController::class, 'delete_service_provider']);
+});
+
+

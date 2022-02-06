@@ -33,10 +33,13 @@ Route::middleware(['auth', 'isCustomer'])->group(function(){
     Route::get('/findElectrician', [PageController::class, 'findElectrician']);
 });
 
-Route::get('/pending_appointments', [AppointmentController::class, 'pending_appointments'])->middleware(['auth']);
-Route::get('/confirmed_appointments', [AppointmentController::class, 'confirmed_appointments'])->middleware(['auth']);
-Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_appointment']);
-Route::get('/cancel_appointment/{id}', [AppointmentController::class, 'cancel_appointment']);
+//Accessd by Service Provider
+Route::middleware(['auth', 'isServiceProvider'])->group(function(){
+    Route::get('/pending_appointments', [AppointmentController::class, 'pending_appointments']);
+    Route::get('/confirmed_appointments', [AppointmentController::class, 'confirmed_appointments']);
+    Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_appointment']);
+    Route::get('/cancel_appointment/{id}', [AppointmentController::class, 'cancel_appointment']);
+});
 
 //Accessed by Admin
 Route::middleware(['auth', 'isAdmin'])->group(function(){

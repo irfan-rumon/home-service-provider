@@ -24,15 +24,14 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth']);
 
-//Accessed by customer
-Route::get('/findElectrician', [PageController::class, 'findElectrician'])->middleware(['auth']);
 
 //Accessd by customer
-Route::get('/findMechanic', [PageController::class, 'findMechanic'])->middleware(['auth']);
-Route::post('/setAppointment/{seriveProvider}', [AppointmentController::class, 'setAppointment'])->middleware(['auth']);
-//Accessed by customer
-Route::get('/customer_appointments', [PageController::class, 'customer_appointments'])->middleware(['auth']);
-
+Route::middleware(['auth', 'isCustomer'])->group(function(){
+    Route::get('/findMechanic', [PageController::class, 'findMechanic']);
+    Route::post('/setAppointment/{seriveProvider}', [AppointmentController::class, 'setAppointment']);
+    Route::get('/customer_appointments', [PageController::class, 'customer_appointments']);
+    Route::get('/findElectrician', [PageController::class, 'findElectrician']);
+});
 
 Route::get('/pending_appointments', [AppointmentController::class, 'pending_appointments'])->middleware(['auth']);
 Route::get('/confirmed_appointments', [AppointmentController::class, 'confirmed_appointments'])->middleware(['auth']);

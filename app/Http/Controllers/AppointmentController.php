@@ -55,6 +55,31 @@ class AppointmentController extends Controller
         return redirect()->back();
     }
 
+    public function approve_appointment_bySP($id)
+    {
+        $appointment = Appointment::find($id);
+        if( $appointment->service_provider_id == Auth::user()->id){
+            $appointment->appointment_status = 'confirmed';
+            $appointment->save();
+            return redirect()->back();
+        }
+        else
+            return redirect('dashboard')->with('message', 'Access denied !!');  
+        
+    }
+
+    public function cancel_appointment_bySP($id)
+    {
+        $appointment = Appointment::find($id);
+        if( $appointment->service_provider_id == Auth::user()->id){
+            $appointment->appointment_status = 'canceled';
+            $appointment->save();
+            return redirect()->back();
+        }
+        else
+            return redirect('dashboard')->with('message', 'Access denied !!');  
+    }
+
     /**
      * Display the specified resource.
      *

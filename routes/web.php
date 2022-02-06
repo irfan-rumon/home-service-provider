@@ -37,8 +37,8 @@ Route::middleware(['auth', 'isCustomer'])->group(function(){
 Route::middleware(['auth', 'isServiceProvider'])->group(function(){
     Route::get('/pending_appointments', [AppointmentController::class, 'pending_appointments']);
     Route::get('/confirmed_appointments', [AppointmentController::class, 'confirmed_appointments']);
-    Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_appointment']);
-    Route::get('/cancel_appointment/{id}', [AppointmentController::class, 'cancel_appointment']);
+    Route::get('/approve_appointment_bySP/{id}', [AppointmentController::class, 'approve_appointment_bySP']);
+    Route::get('/cancel_appointment_bySP/{id}', [AppointmentController::class, 'cancel_appointment_bySP']);
 });
 
 //Accessed by Admin
@@ -47,6 +47,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
     Route::get('/service_providers', [AdminController::class, 'service_providers']);
     Route::get('/appointments', [AdminController::class, 'appointments']);
     Route::get('/delete_service_provider/{id}', [AdminController::class, 'delete_service_provider']);
+    Route::get('/approve_appointment/{id}', [AppointmentController::class, 'approve_appointment']);
+    Route::get('/cancel_appointment/{id}', [AppointmentController::class, 'cancel_appointment']);
 });
 
 
+  

@@ -73,11 +73,15 @@
 	      </div>
     	</nav>
 
+      <div id="content" class="p-4 p-md-5 pt-5">
+       
+      <div class="wrapper d-flex">
+
   
 
    
     @foreach($mechanics as $mechanic ) 
-              <div class="card m-2" style="width: 18rem;">
+              <div class="card m-3"style="width: 18rem; background-color: pink;">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                       <h1 class="card-title">Name: {{ $mechanic->name}}</h1>
@@ -92,6 +96,10 @@
                </div>      
             
     @endforeach  
+
+    </div>
+
+    </div>
     
 
   

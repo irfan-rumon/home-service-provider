@@ -19,7 +19,7 @@
   </head>
   <body>
 		
-		<div class="wrapper d-flex align-items-stretch ">
+		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -75,23 +75,31 @@
 
   
 
-   
-    @foreach($electricians as $electrician ) 
-              <div class="card m-2" style="width: 18rem;">
+      <div id="content" class="p-4 p-md-5 pt-5">
+       
+      <div class="wrapper d-flex">
+      @foreach($electricians as $electrician ) 
+              <div class="card m-3" style="width: 18rem; background-color: pink;">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h1 class="card-title">Name: {{ $electrician->name}}</h1>
+                      <h1 class="card-title">Name:  {{ $electrician->name}}</h1>
+                     
                     </div>
                     <form action={{ url('setAppointment', [$electrician->id]) }} method="POST">
                         @csrf
                        <p>Select Booking date</p>
                   
                       <input type="date" name="appointment_date" class="form-control">
-                      <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Book</button>
+                      <button type="submit" style="margin-bottom: 0.4rem;"class="btn btn-primary mt-3 wow zoomIn">Book</button>
                     </form>
                </div>      
             
-    @endforeach  
+      @endforeach 
+      </div>
+    
+       
+    </div>
+     
     
 
   
